@@ -1,8 +1,15 @@
-# template
-Aux4 CLI Template
+# @aux4/gpt
+Chat GPT Aux4 Integration
+
+![npm](https://img.shields.io/npm/v/@aux4/gpt)
 
 ## Install
 
 ```bash
-aux4 init
+npm install -g @aux4/gpt
+```
+
+## Usage
+```bash
+$ aux4-gpt
 ```

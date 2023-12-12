@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 const { Engine } = require("@aux4/engine");
+const { askGptExecute } = require("./command/AskGptExecutor");
+const { chatGptExecute } = require("./command/ChatGptExecutor");
 
-process.title = "aux4-template";
+process.title = "aux4-gpt";
 
 const config = {
   profiles: [
@@ -10,10 +12,47 @@ const config = {
       name: "main",
       commands: [
         {
-          name: "",
-          execute: [],
+          name: "ask",
+          execute: askGptExecute,
           help: {
-            text: ""
+            text: "Ask a question to GPT",
+            variables: [
+              {
+                name: "model",
+                text: "The model to use",
+                default: "gpt-3.5-turbo"
+              },
+              {
+                name: "history",
+                text: "The file to use as history",
+                default: ""
+              },
+              {
+                name: "question",
+                text: "The question to ask",
+                default: "",
+                arg: true
+              }
+            ]
+          }
+        },
+        {
+          name: "chat",
+          execute: chatGptExecute,
+          help: {
+            text: "Chat with GPT",
+            variables: [
+              {
+                name: "model",
+                text: "The model to use",
+                default: "gpt-3.5-turbo"
+              },
+              {
+                name: "history",
+                text: "The file to use as history",
+                default: ""
+              }
+            ]
           }
         }
       ]

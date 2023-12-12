@@ -1,11 +1,11 @@
 {
-  "name": "@aux4/template",
+  "name": "@aux4/gpt",
   "version": "0.0.1",
-  "description": "",
+  "description": "Chat GPT Aux4 Integration",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
-    "aux4-": "bin/executable.js"
+    "aux4-gpt": "bin/executable.js"
   },
   "scripts": {
     "test": "aux4-test run",
@@ -13,23 +13,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/aux4/template.git"
+    "url": "git+ssh://git@github.com/aux4/gpt.git"
   },
   "keywords": [
     "aux4",
-    "cli"
+    "cli",
+    "openai",
+    "gpt",
+    "chat-gpt",
+    "ai"
   ],
   "author": "Aux4 Team",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/aux4/template/issues"
+    "url": "https://github.com/aux4/gpt/issues"
   },
   "homepage": "https://aux4.io",
   "funding": "https://aux4.io/donate",
   "dependencies": {
     "@aux4/config": "^1.0.3",
     "@aux4/engine": "^1.0.53",
-    "@aux4/input": "^0.0.3"
+    "@aux4/input": "^0.0.3",
+    "keypress": "^0.2.1",
+    "openai": "^4.20.1"
   },
   "devDependencies": {
     "@aux4/test": "^0.0.19"
