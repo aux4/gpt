@@ -3,6 +3,7 @@
 const { Engine } = require("@aux4/engine");
 const { askGptExecute } = require("./command/AskGptExecutor");
 const { chatGptExecute } = require("./command/ChatGptExecutor");
+const { readGptExecute } = require("./command/ReadGptExecutor");
 
 process.title = "aux4-gpt";
 
@@ -18,14 +19,34 @@ const config = {
             text: "Ask a question to GPT",
             variables: [
               {
+                name: "instructions",
+                text: "The instructions file of the prompt",
+                default: "instructions.txt"
+              },
+              {
                 name: "model",
                 text: "The model to use",
-                default: "gpt-3.5-turbo"
+                default: "gpt-4-1106-preview"
+              },
+              {
+                name: "role",
+                text: "The role of the user",
+                default: "user"
               },
               {
                 name: "history",
                 text: "The file to use as history",
                 default: ""
+              },
+              {
+                name: "outputSchema",
+                text: "The file that represents the JSON schema of the output",
+                default: "schema.json"
+              },
+              {
+                name: "context",
+                text: "Read context from stdin",
+                default: false
               },
               {
                 name: "question",
@@ -43,14 +64,63 @@ const config = {
             text: "Chat with GPT",
             variables: [
               {
+                name: "instructions",
+                text: "The instructions file of the prompt",
+                default: "instructions.txt"
+              },
+              {
                 name: "model",
                 text: "The model to use",
-                default: "gpt-3.5-turbo"
+                default: "gpt-4-1106-preview"
+              },
+              {
+                name: "role",
+                text: "The role of the user",
+                default: "user"
               },
               {
                 name: "history",
                 text: "The file to use as history",
                 default: ""
+              },
+              {
+                name: "outputSchema",
+                text: "The file that represents the JSON schema of the output",
+                default: "schema.json"
+              }
+            ]
+          }
+        },
+        {
+          name: "read",
+          execute: readGptExecute,
+          help: {
+            text: "Read from stdin with GPT",
+            variables: [
+              {
+                name: "instructions",
+                text: "The instructions file of the prompt",
+                default: "instructions.txt"
+              },
+              {
+                name: "model",
+                text: "The model to use",
+                default: "gpt-4-1106-preview"
+              },
+              {
+                name: "role",
+                text: "The role of the user",
+                default: "user"
+              },
+              {
+                name: "history",
+                text: "The file to use as history",
+                default: ""
+              },
+              {
+                name: "outputSchema",
+                text: "The file that represents the JSON schema of the output",
+                default: "schema.json"
               }
             ]
           }

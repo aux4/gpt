@@ -5,18 +5,12 @@ const { readFile, asJson } = require("../util/FileUtils");
 
 const out = Printer.on(process.stdout);
 
-async function askGptExecute(params) {
+async function readGptExecute(params) {
   const instructions = await params.instructions;
   const model = await params.model;
-  const question = await params.question;
   const role = await params.role;
   const history = await params.history;
   const outputSchema = await params.outputSchema;
-  const context = await params.context;
-
-  if (!question) {
-    throw new Error("question is required");
-  }
 
   const gpt = new Gpt(model);
   await gpt.instructions(await readFile(instructions), params);
@@ -27,17 +21,8 @@ async function askGptExecute(params) {
     out.println(answer.content);
   });
 
-  let contextContent;
-  if (context === true || context === "true") {
-    contextContent = await Input.readAsString();
-  }
-
-  let message = question;
-  if (contextContent) {
-    message = `---\n${contextContent}\n---\n${question}`;
-  }
-
+  const message = await Input.readAsString();
   await gpt.message(message, params, role);
 }
 
-module.exports = { askGptExecute };
+module.exports = { readGptExecute };

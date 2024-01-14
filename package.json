@@ -32,9 +32,10 @@
   "funding": "https://aux4.io/donate",
   "dependencies": {
     "@aux4/config": "^1.0.3",
-    "@aux4/engine": "^1.0.53",
+    "@aux4/engine": "^1.0.64",
     "@aux4/input": "^0.0.3",
     "keypress": "^0.2.1",
+    "lookpath": "^1.2.2",
     "openai": "^4.20.1"
   },
   "devDependencies": {
