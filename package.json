@@ -1,6 +1,6 @@
 {
   "name": "@aux4/gpt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Chat GPT Aux4 Integration",
   "main": "index.js",
   "preferGlobal": true,
