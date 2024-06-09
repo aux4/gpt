@@ -26,7 +26,7 @@ const config = {
               {
                 name: "model",
                 text: "The model to use",
-                default: "gpt-4-1106-preview"
+                default: "gpt-4o"
               },
               {
                 name: "role",
@@ -71,7 +71,7 @@ const config = {
               {
                 name: "model",
                 text: "The model to use",
-                default: "gpt-4-1106-preview"
+                default: "gpt-4o"
               },
               {
                 name: "role",
@@ -105,7 +105,7 @@ const config = {
               {
                 name: "model",
                 text: "The model to use",
-                default: "gpt-4-1106-preview"
+                default: "gpt-4o"
               },
               {
                 name: "role",
@@ -138,7 +138,7 @@ const config = {
   try {
     await engine.run(args);
   } catch (e) {
-    console.error(e.message.red);
+    console.error(e.message.red, e);
     process.exit(1);
   }
 })();
